@@ -6,6 +6,7 @@ import java.util.concurrent.locks.LockSupport;
 /**
  * JL
  * 2019/5/14  22:43
+ * LockSupport：不同于可重入锁，只存在0(park)和1(unpark)两种状态
  * LockSupport#park():
  *                    1.可以阻塞当前线程，能够支持中断的影响并且不会抛出InterruptedException异常，
  *                    只会默默的返回，可以从Thread#interrupted()方法获得中断标记
