@@ -1,4 +1,4 @@
-package threadBasicMethod2;
+package threadBasicMethod.interruptMethod;
 
 /**
  * JL
@@ -6,17 +6,22 @@ package threadBasicMethod2;
  **/
 public class ThreadMInterruptMethod {
     public static void main(String[] args) throws InterruptedException {
+    	
         Thread t = new Thread(){
+        	
             public void run(){
                 while(true){
+                	
                     if(Thread.currentThread().isInterrupted()){
                         System.out.println("Interrupter!");
                         break;
                     }
+                    
                     try{
                         System.out.println("run continue");
                         Thread.sleep(2000);
                     }catch (InterruptedException e){
+                    	
                         System.out.println("Interrupted when sleep");
                         Thread.currentThread().interrupt();
                         if(Thread.interrupted()){// 判断是否被中断，并清除当前中断状态

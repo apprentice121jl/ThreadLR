@@ -1,4 +1,4 @@
-package JDKCurrentUtil;
+package JDKCurrentUtil.LockSupport;
 
 import java.util.concurrent.locks.LockSupport;
 

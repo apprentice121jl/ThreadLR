@@ -1,4 +1,4 @@
-package JDKCurrentUtil;
+package JDKCurrentUtil.ReentrantLockClass;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;

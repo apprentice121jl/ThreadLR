@@ -1,13 +1,14 @@
-package threadBasicMethod2.SynchronizedKeyWord;
+package SynchronizedKeyWord;
 
 /**
  * JL
  * 2019/5/12  11:48
- * 在java中，Integer属于不变对象即对象一旦创建，就不可能被修改，
- * 如果想要改变，就必须新建一个Integer对象，
+ * 在java中，Integer属于不变对象即对象一旦创建，是不可能被修改的，
+ * 如果想要修改，就必须新建一个Integer对象，
  * 使用的Integer.valueOf(i.intValue()+i)进行新对象的创建
  **/
 public class SynchronizedError implements Runnable{
+	
     public static Integer i = 0;
 
     static SynchronizedError instance = new SynchronizedError();

@@ -1,4 +1,4 @@
-package threadBasicMethod2;
+package threadBasicMethod;
 
 /**
  * JL
