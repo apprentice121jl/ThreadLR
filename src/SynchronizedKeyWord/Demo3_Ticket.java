@@ -16,7 +16,7 @@ class  Ticket extends Thread
 	//由于是创建了多个Ticket对象,所以要使用static数据来实现数据的共享
 	private  static  int num = 100;   //所有的线程共享此数据
 	//如果用引用数据类型成员变量当做锁对象，必须是静态的.因为创建线程时,是new出了多个Ticket对象,如果不是静态的会导致锁对象不是同一个
-	//private  static Object obj = new Object();  
+	// private  static Object obj = new Object();  
 	public  void run(){
 		while(true)
 		{
@@ -29,7 +29,7 @@ class  Ticket extends Thread
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				System.out.println(getName()+"���ǵ�"+num--+"��Ʊ");
+				System.out.println(getName()+"这是第"+num--+"号票");
 			}
 		}
 		

@@ -1,11 +1,14 @@
 package SynchronizedKeyWord;
 /**
- * 同步代码块嵌套同步代码块，容易产生异常
+ * 同步代码块嵌套同步代码块，容易产生死锁
  * @author JL
  */
 public class Demo5_DeadLock {
+	
 	public static String left = "筷子左";
+	
 	public static String right = "筷子右";
+	
 	public static void main(String[] args) {
 		new Thread(){
 			public void run(){

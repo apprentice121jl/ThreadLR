@@ -5,7 +5,9 @@ public class Demo2_Synchronized {
  * 使用synchronized关键字修饰一个方法, 该方法中所有的代码都是同步的
  */
 	public static void main(String[] args) {
+		
 		final Printer2 p = new Printer2();
+		
 		new Thread(){
 			public void run(){
 				while(true)
@@ -27,18 +29,20 @@ public class Demo2_Synchronized {
 	}
 
 }
-/*//运行的时候，注意解注释，两个类名相同的类，一个是静态方法的，一个是非静态方法的
+
+//运行的时候，注意解注释，两个类名相同的类，一个是静态方法的，一个是非静态方法的
 class Printer2{
-	//非静态的同步方法的锁对象是this
+	
+	// 非静态的同步方法的锁对象是this
 	public synchronized void print1(){           //同步方法只需在方法头上加上synchronized关键字
-		System.out.print("1");
-		System.out.print("2");
-		System.out.print("��");
-		System.out.print("��");
-		System.out.print("Ա");
+		System.out.print("I");
+		System.out.print("am");
+		System.out.print("程");
+		System.out.print("序");
+		System.out.print("员");
 		System.out.println();
-		
 	}
+	
 	public  void print2(){
 		synchronized(this)
 		{
@@ -49,23 +53,25 @@ class Printer2{
 			System.out.println();
 		}
 	}
-}*/
-class Printer2{
+}
+
+
+/*class Printer2{
 	
 	//静态的同步方法的锁对象是该类的字节码对象
-	public static synchronized void print1(){    
-		System.out.print("1");
-		System.out.print("2");
+	public static synchronized void print1()
+	{    
+		System.out.print("I");
+		System.out.print("am");
 		System.out.print("程");
 		System.out.print("序");
 		System.out.print("员");
 		System.out.println();
-		
 	}
 	
-	Object obj = new Object();
+	// static Object obj = new Object();
 	public  static void print2(){
-		synchronized(Printer2.class)    //注意:静态方法中synchronized中的锁对象必须是静态的对象,普通对象不行
+		synchronized(Printer2.class)    //注意:静态方法中Synchronized中的锁对象必须是静态的对象,普通对象不行 
 		{
 			System.out.print("2");
 			System.out.print("3");
@@ -74,4 +80,4 @@ class Printer2{
 			System.out.println();
 		}
 	}
-}
+}*/
