@@ -1,4 +1,4 @@
-package JDKCurrentUtil;
+package JDKCurrentUtil.ReentrantLockClass;
 
 import java.util.Random;
 import java.util.concurrent.locks.Lock;
@@ -11,6 +11,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  **/
 public class ReadWriteLockDemo {
     private static Lock lock = new ReentrantLock();
+    
     private static ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
     private static Lock readLock = readWriteLock.readLock();
     private static Lock writeLock = readWriteLock.writeLock();
@@ -37,13 +38,15 @@ public class ReadWriteLockDemo {
     }
 
     public static void main(String[] args) {
+    	
         final ReadWriteLockDemo demo = new ReadWriteLockDemo();
+        
         Runnable readRunnable = new Runnable() {
             @Override
             public void run() {
                 try {
-                    // demo.handleRead(readLock);
-                    demo.handleRead(lock);
+                    demo.handleRead(readLock);
+                    // demo.handleRead(lock);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -54,8 +57,8 @@ public class ReadWriteLockDemo {
             @Override
             public void run() {
                 try {
-                    // demo.handleWrite(writeLock,new Random().nextInt());
-                    demo.handleWrite(lock,new Random().nextInt());
+                     demo.handleWrite(writeLock,new Random().nextInt());
+                    //demo.handleWrite(lock,new Random().nextInt());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

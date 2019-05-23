@@ -69,13 +69,13 @@ class Printer3
 		r.lock();                        //获取锁
 			if(flag !=1)
 			{
-				c1.await();             //由于唤醒的是指定的线程，所以不用循环进行判断
+				c1.await();             //由于唤醒的是指定的线程，所以不用循环进行判断,同时释放了可重入锁
 			}
 			System.out.print("1");
 			System.out.print("2");
-			System.out.print("��");
-			System.out.print("��");
-			System.out.print("Ա");
+			System.out.print("程");
+			System.out.print("序");
+			System.out.print("员");
 			System.out.println();
 			flag = 2;
 			//this.notifyAll();           

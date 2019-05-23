@@ -1,4 +1,4 @@
-package JDKCurrentUtil;
+package JDKCurrentUtil.ReentrantLockClass;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
@@ -6,8 +6,8 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * JL
  * 2019/5/12  21:21
- * tryLock：1.给定一个等待时间，超时自动放弃获取锁
- *          2.不给定时间，尝试进行获取锁，但不进行等待，获取到锁直接返回true，未获取到锁返回false
+ * tryLock：1.给定一个等待时间，超时自动放弃获取锁(可以响应中断)
+ *          2.不给定时间，尝试进行获取锁，但不进行等待，获取到锁直接返回true，未获取到锁返回false(不响应中断)
  **/
 public class TimeLock implements Runnable {
 
@@ -38,5 +38,6 @@ public class TimeLock implements Runnable {
         Thread t2 = new Thread(new TimeLock(),"t2");
         t1.start();
         t2.start();
+        // t2.interrupt(); // 验证tryLock可以响应中断
     }
 }

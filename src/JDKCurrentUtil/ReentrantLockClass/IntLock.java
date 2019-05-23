@@ -1,4 +1,4 @@
-package JDKCurrentUtil;
+package JDKCurrentUtil.ReentrantLockClass;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -19,7 +19,6 @@ public class IntLock implements Runnable{
 
     @Override
     public void run() {
-
             try {
                 if(lock==1){
                     lock1.lockInterruptibly();
