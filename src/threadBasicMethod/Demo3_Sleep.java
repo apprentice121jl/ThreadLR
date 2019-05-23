@@ -1,6 +1,6 @@
 package threadBasicMethod;
 /**
- * Thread�еľ�̬������sleep����,�������ȥ˯��
+ * Thread中的静态方法:sleep方法,会带着锁去睡觉
  * @author JL
  *
  */
@@ -12,7 +12,7 @@ public class Demo3_Sleep {
 			public void run(){
 				for(int i = 0;i < 20;i++)
 				{
-					//��Ϊ����run����û���׳��쳣�����������runֻ�ܲ����쳣
+					// 因为父类run方法没有抛出异常，所以子类的run只能捕获异常
 					try {
 						Thread.sleep(2000);
 					} catch (InterruptedException e) {

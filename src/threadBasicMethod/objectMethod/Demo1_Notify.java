@@ -36,6 +36,7 @@ public class Demo1_Notify {
 		}.start();
 	}
 }
+
 class Printer
 {
 	private int  flag = 1;
@@ -60,6 +61,7 @@ class Printer
 	
 	
 	public   void print2() throws InterruptedException{
+		
 		synchronized(this)
 		{
 			if(flag != 2)

@@ -36,7 +36,7 @@ public class Demo4_setDaemon {
 			}
 		};
 		//设置了守护线程后，执行的过程即:当t1执行完之后,不管t2执行到何处了,都应该停止执行
-		t2.setDaemon(true);    //将t2设置为守护线程
+		t2.setDaemon(true);    //将t2设置为守护线程;不设置守护线程程序将不会停止
 		t1.start();
 		t2.start();
 	}

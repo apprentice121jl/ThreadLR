@@ -1,14 +1,15 @@
 package threadBasicMethod;
 
 /**
- * JL
- * 2019/5/11  13:18
+ *suspend和resume方法已经废弃
  **/
 public class ThreadSuspendResume {
+	
     public static  Object obj = new Object();
 
     static ChangeObject t1 = new ChangeObject("t1");
     static ChangeObject t2 = new ChangeObject("t2");
+    
     public static  class ChangeObject extends Thread{
         public ChangeObject(String name) {
             super.setName(name);

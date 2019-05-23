@@ -3,10 +3,15 @@ package threadBasicMethod;
 /**
  * JL
  * 2019/5/10  22:36
- * Thread#stop方法直接终止线程，并会立即释放这个线程持有的锁
+ * Thread#stop方法直接终止线程，并会立即释放这个线程持有的锁，
+ * 突然中断线程，不能保证数据的完整性
+ * 
+ * stop方法已经废弃
  **/
 public class ThreadStopMethod {
+	
     public static User u = new User();
+    
     public static class User{
 
         public User(){

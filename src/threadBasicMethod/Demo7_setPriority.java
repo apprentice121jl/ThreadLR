@@ -6,6 +6,7 @@ package threadBasicMethod;
 public class Demo7_setPriority {
 
 	public static void main(String[] args) {
+		
 		Thread  t1 = new Thread(){
 			public void run(){
 				for(int i =0;i < 100;i++)
@@ -14,6 +15,7 @@ public class Demo7_setPriority {
 				}
 			}
 		};
+		
 		Thread  t2 = new Thread(){
 			public void run(){
 				for(int i =0;i < 100;i++)

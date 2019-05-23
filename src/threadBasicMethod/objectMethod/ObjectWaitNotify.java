@@ -5,7 +5,9 @@ package threadBasicMethod.objectMethod;
  * 2019/5/11  12:55
  **/
 public class ObjectWaitNotify {
+	
     final static Object object = new Object();
+    
     public static class T1 extends Thread{
         public void run(){
             synchronized (object){

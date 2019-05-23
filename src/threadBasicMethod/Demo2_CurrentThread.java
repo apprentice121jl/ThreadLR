@@ -19,7 +19,7 @@ public class Demo2_CurrentThread {
 						//内部使用了Thread的静态方法currentThread()
 						System.out.println(Thread.currentThread().getName()+"....bbbbb");
 					}
-				}
+				},"test"
 				).start();
 		//Thread.currentthread()获取当前正在执行的线程，此处获取的是主线程
 		System.out.println(Thread.currentThread().getName());

@@ -6,18 +6,10 @@ package threadBasicMethod;
  *
  **/
 public class ThreadJoin {
-    static volatile int i = 0;
-
-    public static  class PlusTask implements Runnable{
-        @Override
-        public void run() {
-            for(int k =0;k<10000;k++)
-                i++;
-            System.out.println(Thread.currentThread().getName()+"execute success");
-        }
-    }
+    
 
     public static void main(String[] args) throws InterruptedException {
+    	
         Thread[] threads = new Thread[10];
         for (int i = 0;i<10;i++){
             threads[i]=new Thread(new PlusTask());
@@ -29,6 +21,17 @@ public class ThreadJoin {
             // 这10个线程之间互相没有协作，只是main线程需要等待这10个线程执行完之后，才能继续执行
             threads[i].join();
         }
-        System.out.print(i);
+        System.out.print(i);// i不能保证线程安全
+    }
+    
+    static volatile int i = 0;
+
+    public static  class PlusTask implements Runnable{
+        @Override
+        public void run() {
+            for(int k =0;k<10000;k++)
+                i++;
+            System.out.println(Thread.currentThread().getName()+"execute success");
+        }
     }
 }

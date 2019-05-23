@@ -66,8 +66,8 @@ public class Demo2_NotifyAll {
 class Printer2
 {
 	private int  flag = 1;
+	
 	public   void print1() throws InterruptedException{ 
-		
 		synchronized(this)
 		{
 			while(flag != 1 )
@@ -86,6 +86,7 @@ class Printer2
 			this.notifyAll();               //唤醒所有等待的线程
 		}
 	}
+	
 	public   void print2() throws InterruptedException{
 		synchronized(this)
 		{
@@ -100,10 +101,11 @@ class Printer2
 			System.out.print("6");
 			System.out.println();
 			flag =3;
-			//this.notify();
+			// this.notify();
 			this.notifyAll();
 		}
 	}
+	
 	public   void print3() throws InterruptedException{
 		synchronized(this)
 		{
@@ -117,11 +119,11 @@ class Printer2
 			System.out.print("h");
 			System.out.print("e");
 			System.out.print("i");
-			System.out.print("m");
-			System.out.print("a");
+			System.out.print("z");
+			System.out.print("i");
 			System.out.println();
 			flag =1;
-			//this.notify();
+			// this.notify();
 			this.notifyAll();
 		}
 	}
