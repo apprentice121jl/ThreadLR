@@ -3,10 +3,10 @@ package JDKCurrentUtil.LockSupport;
 import java.util.concurrent.locks.LockSupport;
 
 /**
- * JL
- * 2019/5/14  23:32
+ * 验证LockSupport非可重入锁，多次unpark不可对应多次park
+ *
  **/
-public class ParkUnpark {
+public class UnparkPark2 {
 
     public static void main(String[] args) {
         Thread t = Thread.currentThread();
