@@ -15,7 +15,7 @@ public class TestPark {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		final Thread t = new Thread() {
+		final Thread t = new Thread("parkTestThread") {
 			public void run() {
 				System.out.println("线程开始执行");
 				LockSupport.park();
