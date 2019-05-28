@@ -26,6 +26,7 @@ public class TestThreadLocalNum {
 	
 	
 	private static class TestClient extends Thread{
+		
 		private TestThreadLocalNum sn ;
 		
 		public TestClient(TestThreadLocalNum sn) {
