@@ -1,7 +1,5 @@
 package meetThread;
 
-import java.util.Date;
-
 /**
  * 即使main方法执行完毕，开启的线程也会继续执行
  * @author JL
