@@ -19,23 +19,25 @@ public class TestPark {
 			public void run() {
 				System.out.println("线程开始执行");
 				LockSupport.park();
+				System.out.println("线程park方法执行后");
 				// Thread.currentThread().isInterrupted()  只是判断中断状态，并未清除状态，所以LockSupport.park();依旧不起作用
 				// Thread.interrupted() 获取中断状态的同时，将中断状态设置为false，所以LockSupport.park();起作用
-				if(Thread.interrupted()) {
-					System.out.println("进入中断判断");
+				if(Thread.interrupted() ) {
+					System.out.println("进入中断判断,线程中断状态："+Thread.currentThread().isInterrupted());
 					LockSupport.park();
 					System.out.println("thread "+Thread.currentThread().getId()+" awake!");
 				}
-				System.out.println("线程结束执行");
+				System.out.println("线程结束执行"+",线程中断状态："+Thread.currentThread().isInterrupted());
 			}
 		};
 		
 		t.start();
 		Thread.sleep(3000);
-		System.out.println("rrrrr");
+		System.out.println("睡眠3秒后");
 		t.interrupt();
-		//Thread.sleep(10000);
-		LockSupport.unpark(t);
+		Thread.sleep(10000);
+		System.out.println("睡眠10秒后");
+		// LockSupport.unpark(t);
 		System.out.println("执行unpark");
 	}
 	
