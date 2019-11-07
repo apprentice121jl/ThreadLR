@@ -12,7 +12,7 @@ public class TestThreadLocalNum {
 		seqNum.set(seqNum.get()+1);
 		return seqNum.get();
 	}
-	
+
 	public static void main(String[] args) {
 		TestThreadLocalNum sn = new TestThreadLocalNum();
 		// 三个线程对象共享sn
