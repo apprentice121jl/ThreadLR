@@ -4,6 +4,7 @@ package JDKCurrentUtil.ThreadLocal;
  * 1.通过ThreadLocal创建的副本是存储在每个Thread自己的threadLocals变量中的
  * 2.threadLocals的类型 ThreadLocal.ThreadLocalMap的key为ThreadLocal对象，因为每个线程中可有多个threadLocal变量，就像下面代码中的longLocal和stringLocal
  * 3.在进行get之前，必须先set，否则会报空指针异常。 如果想在get之前不需要调用set就能正常访问的话，必须重写initialValue()方法
+ * 4.当调用remove方法后，不要再调用get方法进行调用，因为get方法会调用initialValue进行设置值
  * 
  */
 public class TestThreadLocal {
@@ -50,6 +51,7 @@ public class TestThreadLocal {
 	   
 	   thread1.start();
 	   thread1.join();
+
 	   System.out.println(test.getLong());
 	   System.out.println(test.getString());
    }

@@ -5,11 +5,15 @@ import java.nio.ByteBuffer;
 public class BufferSliceTest {
 
 	public static void main(String[] args) {
+		
 		// 缓冲区分片
 		// SliceBufferTest();
 		
 		// 只读缓冲区
-		readOnlyBufferTest();
+		// readOnlyBufferTest();
+		
+		
+		
 	}
 
 	public static void readOnlyBufferTest() {

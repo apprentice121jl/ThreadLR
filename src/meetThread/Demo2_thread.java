@@ -1,12 +1,12 @@
 package meetThread;
 
-
 /**
  * 即使main方法执行完毕，开启的线程也会继续执行
  * @author JL
  *
  */
 public class Demo2_thread {
+
 
 	public static void main(String[] args) throws InterruptedException 
 	{
