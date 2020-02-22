@@ -10,7 +10,9 @@ import java.util.concurrent.locks.LockSupport;
  * LockSupport#park():
  *                    1.可以阻塞当前线程，能够支持中断的影响并且不会抛出InterruptedException异常，
  *                    只会默默的返回，可以从Thread#interrupted()方法获得中断标记
- *                    2.unpark()操作发生在park()之前，也可以使下一次的park()操作立即返回
+ *                    2.unpark()操作发生在park()之前，可以使下一次的park()操作立即返回
+ *                    3.LockSupport.park 不会释放Synchronized持有的锁对象
+ *                    4.park后的线程不再接受调度
  **/
 public class LockSupportDemo {
 
@@ -25,9 +27,9 @@ public class LockSupportDemo {
         }
 
         public void run(){
-            synchronized (u){
+            synchronized (u){// LockSupport.park 不会释放持有的锁对象
                 System.out.println("in "+getName());
-                LockSupport.park();
+                LockSupport.park(this);
                 if(Thread.interrupted()){
                     System.out.println(getName()+"被中断了");
                 }
@@ -35,18 +37,17 @@ public class LockSupportDemo {
             System.out.println(getName()+"执行结束");
         }
     }
-/*
     public static void main(String[] args) throws InterruptedException {
         t1.start();
         Thread.sleep(100);
         t2.start();
-        LockSupport.unpark(t1);
+        //LockSupport.unpark(t1);
         LockSupport.unpark(t2);
         t1.join();
         t2.join();
 
-    }*/
-    public static void main(String[] args) throws InterruptedException {
+    }
+ /*   public static void main(String[] args) throws InterruptedException {
         t1.start();
         Thread.sleep(100);
         t2.start();
@@ -54,5 +55,5 @@ public class LockSupportDemo {
         LockSupport.unpark(t2);
 
 
-    }
+    }*/
 }

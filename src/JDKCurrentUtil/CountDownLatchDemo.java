@@ -11,6 +11,7 @@ import java.util.concurrent.Executors;
  **/
 public class CountDownLatchDemo implements Runnable {
 
+    // 10代表当前计数器的计数个数,即需要有10个线程完成任务，等待在CountDownLatch上的线程才能继续执行
     static final CountDownLatch end= new CountDownLatch(10);
     static final CountDownLatchDemo demo = new CountDownLatchDemo();
     @Override
@@ -29,6 +30,7 @@ public class CountDownLatchDemo implements Runnable {
         for (int i = 0; i < 10; i++) {
             exec.submit(demo);
         }
+        // 要求主线程等待所有10个线程全部执行完毕
         end.await();
         System.out.println("Fire!");
         exec.shutdown();
