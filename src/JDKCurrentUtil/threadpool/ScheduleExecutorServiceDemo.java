@@ -16,10 +16,12 @@ public class ScheduleExecutorServiceDemo {
         ScheduledExecutorService ses =
                 Executors.newScheduledThreadPool(10);
         // 如果前面的任务没有完成，则调度不会启动
+        // initialDelay:代表第一次任务的开始延长时间
         ses.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
                 try {
+                    System.out.println("program start");
                     Thread.sleep(5000);
                     System.out.println(System.currentTimeMillis()/1000);
                     int i = 1/0;
@@ -27,6 +29,6 @@ public class ScheduleExecutorServiceDemo {
                     e.printStackTrace();
                 }
             }
-        },0,2, TimeUnit.SECONDS);
+        },10,2, TimeUnit.SECONDS);
     }
 }
