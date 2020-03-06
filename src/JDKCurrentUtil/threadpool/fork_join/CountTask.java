@@ -6,7 +6,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveTask;
 
-public class CountTask extends RecursiveTask {
+public class CountTask extends RecursiveTask<Long> {
 
     private static final int THRESHOLD = 10000;
     private static final int GROUP = 1000;
@@ -21,7 +21,7 @@ public class CountTask extends RecursiveTask {
     }
 
     @Override
-    protected Object compute() {
+    protected Long compute() {
         long sum = 0;
         boolean canCompute = (end-start)<THRESHOLD;
         if(canCompute){
@@ -75,6 +75,7 @@ public class CountTask extends RecursiveTask {
         ForkJoinTask<Long> result = forkJoinPool.submit(task);
 
         try {
+            // 如果没有结果，会在此处等在返回结果
             long res = result.get();
             System.out.println("sum12:"+res);
         } catch (InterruptedException e) {
