@@ -33,7 +33,7 @@ public class TestPark {
 		System.out.println("rrrrr");
 		t.interrupt();
 		//Thread.sleep(30); // 睡眠一段时间再次unpark就不会卡在park了
-		LockSupport.unpark(t);
+		//LockSupport.unpark(t);
 		System.out.println("执行unpark");
 	}
 	
