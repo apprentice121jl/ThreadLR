@@ -2,6 +2,11 @@ package threadBasicMethod.volatileUse;
 
 public class TestVolatile {
 
+    /**
+     * 只有两个线程存在时间先后顺序，volatile先行发生原则才能成功，否则失败
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         TestObject testObject = new TestObject();
