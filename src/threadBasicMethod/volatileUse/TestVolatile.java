@@ -19,18 +19,14 @@ public class TestVolatile {
         }).start();
 
         new Thread(() -> {
-           /* try {
+            /* try {
                 Thread.sleep(1000);
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }*/
-
             testObject.setI(1);
 
         }).start();
-
-
-
     }
 }

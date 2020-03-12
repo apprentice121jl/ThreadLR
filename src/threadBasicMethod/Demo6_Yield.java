@@ -3,7 +3,7 @@ package threadBasicMethod;
 /**
  * yield是静态方法
  * 
- * 让出cpu,礼让线程,可以再次进行CPU资源的竞争
+ * 让出cpu，礼让线程，可以再次进行CPU资源的竞争
  */
 public class Demo6_Yield {
 
