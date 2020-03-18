@@ -11,13 +11,12 @@ public class ThreadLocalDemo_GC {
 
     static volatile ThreadLocal<SimpleDateFormat>  tl = new ThreadLocal<SimpleDateFormat>(){
         protected  void finalize() throws Throwable{
-            System.out.println(this.toString() +" is gc");
+            System.out.println(this.toString() +" is GC");
         }
     };
 
-
-
     static volatile CountDownLatch cd = new CountDownLatch(10000);
+
     public static  class ParseData implements Runnable{
 
         int i = 0;
@@ -32,7 +31,7 @@ public class ThreadLocalDemo_GC {
                 if(tl.get() == null){
                     tl.set(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"){
                         protected  void finalize() throws Throwable{
-                            System.out.println(this.toString() +" is gc");
+                            System.out.println(this.toString() +" is -gc-");
                         }
                     });
                     System.out.println(Thread.currentThread().getId()+":create SimpleDateFormat");
@@ -55,10 +54,10 @@ public class ThreadLocalDemo_GC {
             es.execute(new ParseData(i));
         }
         cd.await();
-        System.out.println("mission complete!");
+        System.out.println(" mission complete!");
         tl = null;
         System.gc();
-        System.out.println();
+        System.out.println("first GC complete!! ");
         tl = new ThreadLocal<SimpleDateFormat>();
         cd = new CountDownLatch(10000);
         for (int i = 0; i < 10000; i++) {
@@ -68,5 +67,6 @@ public class ThreadLocalDemo_GC {
         Thread.sleep(1000);
         System.gc();
         System.out.println("second GC complete");
+        es.shutdown();
     }
 }
