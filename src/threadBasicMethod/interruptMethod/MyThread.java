@@ -19,7 +19,7 @@ public class MyThread extends Thread {
 				System.out.println(Thread.currentThread().getName()+" ("+this.getState()+")loop-"+i);
 			}
 		}catch(InterruptedException e) {
-			System.out.println(Thread.currentThread().getName()+" ("+this.getState()+") catch InterruptedException");
+			System.out.println(Thread.currentThread().getName()+" ("+this.getState()+") catch InterruptedException  "+isInterrupted());
 		}
 	}
 }
