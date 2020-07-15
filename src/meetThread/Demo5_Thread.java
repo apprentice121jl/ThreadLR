@@ -6,6 +6,7 @@ package meetThread;
  */
 public class Demo5_Thread {
 
+
     public static void main(String[] args) {
         Runnable runnable = () -> {
             for(int i = 1;i < 10;i++)
