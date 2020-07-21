@@ -72,16 +72,16 @@ public class ForEachUse {
         });
 
         // 遍历的进阶版1
-        Arrays.stream(arr).forEach((final int x )->{
-            System.out.print(x+"  ");
-        });
+        Arrays.stream(arr).forEach(
+                (final int x )->{
+                        System.out.print(x+"  "); });
 
         // 遍历的进阶版2：lambda表达式左边表示参数，右边表示实现体；lambda表达式是匿名对象实现的一种新的方式
         Arrays.stream(arr).forEach(( x )->{
             System.out.print(x+"  ");
         });
 
-        // 遍历的进阶版3：使用方法引用
+        // 遍历的进阶版3：使用方法引用   类名::方法名
         Arrays.stream(arr).forEach(System.out::print);
     }
 }

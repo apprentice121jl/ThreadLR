@@ -13,6 +13,16 @@ public class SupplierDemo {
             // System.out.println((() -> "hello wolrd").get());
 
             System.out.println(getStr(() -> "hello wolrd"));
+
+            String str = "hello wolrd";
+            // 第一个方法
+            System.out.println(getStrLength(() -> str.length()));
+            // 第二个方法:调用的外部对象str的方法
+            System.out.println(getStrLength(str::length));
+        }
+
+        public static <T> T getStrLength(Supplier<T> supplier) {
+            return supplier.get();
         }
 
         public static <T> T getStr(Supplier<T> supplier) {

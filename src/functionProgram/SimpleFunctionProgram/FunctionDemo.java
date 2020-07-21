@@ -17,6 +17,8 @@ public class FunctionDemo {
             List<String> list = Arrays.asList("1", "2", "3", "11", "22", "33");
             // Function接口:  R apply(T t);  R代表返回值，T代表参数
             getLength(list, (t) -> {return t.length();});
+            // 方法引用：相当于实现Function接口，引用的是对象的方法
+            getLength(list,String::length);
         }
 
         public static <T, R> void getLength(List<T> list, Function<T, R> function) {
