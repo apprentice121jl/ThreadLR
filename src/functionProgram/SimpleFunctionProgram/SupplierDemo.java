@@ -12,7 +12,6 @@ public class SupplierDemo {
         public static void main(String[] args) {
             // 不接受此种写法
             // System.out.println((() -> "hello wolrd").get());
-
             Supplier<String> supplier = () -> "hello wolrd";
             String s = supplier.get();
 
