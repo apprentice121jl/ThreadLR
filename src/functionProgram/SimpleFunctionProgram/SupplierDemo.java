@@ -1,5 +1,6 @@
 package functionProgram.SimpleFunctionProgram;
 
+import java.util.concurrent.Callable;
 import java.util.function.Supplier;
 
 /**
@@ -11,6 +12,9 @@ public class SupplierDemo {
         public static void main(String[] args) {
             // 不接受此种写法
             // System.out.println((() -> "hello wolrd").get());
+
+            Supplier<String> supplier = () -> "hello wolrd";
+            String s = supplier.get();
 
             System.out.println(getStr(() -> "hello wolrd"));
 
