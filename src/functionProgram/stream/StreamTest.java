@@ -16,7 +16,7 @@ import java.util.stream.Stream;
  * 元素序列   ：  流提供了一个接口，可以访问特定元素类型的一组有序值
  *
  * 中间操作：中间操作会返回另一个流。需要注意的是，这边并不会计算，只是把流串起来。（见例子的stream的创建）
- *
+ * @see TerminalTest  终端操作
  *
  **/
 public class StreamTest {
