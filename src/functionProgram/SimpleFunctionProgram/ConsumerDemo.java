@@ -12,15 +12,18 @@ import java.util.function.Consumer;
 public class ConsumerDemo {
     public static void main(String[] args) {
         List<String> list = Arrays.asList("1", "2", "3", "11", "22", "33");
-        Consumer<String> consumer = (String str) -> System.out.print("first "+ str+"  ");
+
+        Consumer<String> consumer = (String str) -> System.out.println("first "+ str+"  ");
         forEach(list, consumer);
+        System.out.println("--- first end ---");
 
         Consumer<String> andThenConsumer = (String str) -> System.out.print("andThen:" + str+"  ");
         forEach(list, consumer, andThenConsumer);
+        System.out.println("--- andThen end ---");
 
-        Consumer<String> andThen2Consumer = (String str) -> System.out.print("andThen2:" + str+" ");
+        Consumer<String> andThen2Consumer = (String str) -> System.out.print("andThen2:" + str+"  ");
         forEach(list, consumer, andThenConsumer, andThen2Consumer);
-
+        System.out.println("--- andThen2 end ---");
     }
 
     public static <T> void forEach(List<T> list, Consumer<T> consumer) {
