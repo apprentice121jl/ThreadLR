@@ -27,8 +27,8 @@ public class StreamTest {
         List<String> list = Arrays.asList("1","3", "2", "3","11", "22", "33");
         Stream<String> stream = list.stream()
                 .filter((str) -> str.length() == 1).limit(2);
-        System.out.println(stream.collect(Collectors.toList()));
-        // 中间操作：遍历
+        System.out.println("将流转换为List：  "+stream.collect(Collectors.toList()));
+        // 中间操作：遍历，filter传递的是Predicate，返回boolean
         consumer.accept("遍历操作");
         list.stream().filter((String str)->str.length() == 1).forEach(System.out::println);
         //中间操作：去除重复
@@ -64,7 +64,7 @@ public class StreamTest {
         // map是映射，接受一个函数作为参数。这个函数会被应用到每个元素上，并将其映射成一个新的元素
         consumer.accept("map操作");
         Stream.of(1, 2, 3).map(n -> n * n).forEach(e->System.out.print(e+" "));
-        // 在map映射后，得到的是Stream<String[]>的流，然后再通过flatMap的扁平化处理，转化为Stream<String>的流
+        // 在map映射后，得到的是Stream<String[]>的流，再通过flatMap的扁平化处理，转化为Stream<String>的流
         consumer.accept("flatMap操作");
         Stream.of(new String[]{"123", "345"})
                 .map((s) -> s.split(""))
