@@ -23,22 +23,22 @@ public class TerminalTest {
 
         // 字符串数组中是否有长度为1的字符串,有一个匹配就返回true
         boolean anyMatch = Stream.of("1", "2", "3", "11", "22", "33").anyMatch( (str) -> str.length() == 1 );
-        System.out.println(anyMatch);
+        System.out.println("anyMatch:   "+anyMatch);
 
-        // 字符串数组中是否有长度都等于2的字符串
+        // 字符串数组中字符串长度 全都 等于2的字符串
         boolean allMatch = Stream.of("12", "22", "34", "11", "22", "33").allMatch((str) -> str.length() == 2);
-        System.out.println(allMatch);
+        System.out.println("allMatch:   "+allMatch);
         // 字符串数组中不存在等于2的字符串
         boolean noneMatch = Stream.of("1", "2", "3", "11", "22", "33").noneMatch((str) -> str.length() == 2);
-        System.out.println(noneMatch);
+        System.out.println("noneMatch:   "+noneMatch);
         //---------------------------------华丽的分割线-------------------------------------
         // 返回第一个元素，获取第一个元素，有可能为空，返回值为Optional。
         Optional<String> first = Stream.of("1", "2", "3", "11", "22", "33").findFirst();
-        System.out.println(first.get());
+        System.out.println("findFirst:   "+first.get());
         // 返回任意一个元素
         Optional<String> findAny = Stream.of("1", "2", "3", "11", "22", "33").parallel().findAny();
-        System.out.println(findAny.get());
-        // reduce
+        System.out.println("findAny:   "+findAny.get());
+        //规约：reduce
         int sum = 0;
         int[] arr = new int[]{1, 2, 3, 4};
         for (int num : arr) {
