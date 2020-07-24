@@ -20,7 +20,7 @@ import java.util.stream.Stream;
  * @see TerminalTest  终端操作
  *
  **/
-public class StreamTest {
+public class StreamAndMiddleTest {
     public static void main(String[] args) {
         Consumer consumer = System.out::println;
         // 取出字符串长度为1，前两个字符串
