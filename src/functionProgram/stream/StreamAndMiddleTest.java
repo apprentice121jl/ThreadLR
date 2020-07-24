@@ -10,6 +10,7 @@ import java.util.stream.Stream;
  * @author julong
  * @description 流测试用例
  * https://segmentfault.com/a/1190000021569339
+
  * 1.集合讲的是数据，流讲的是计算
  * 2.流是Java8的新成员，允许以声明性方式处理数据集合，即从支持数据处理操作的源生成的元素序列。
  * 3.数据处理操作   ：  类似于数据库的操作，以及函数式编程语言中的常用操作，如filter、 map、 reduce、 find、 match、 sort等。（见例子的list转stream）
